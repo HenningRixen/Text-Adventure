@@ -1,6 +1,4 @@
 def start_game():
-    
-    while True:
         print("Welcome to my mystical adventure")
         print("--------------------------------")
         print("... You wake up in a strange room it smells like mold and a torch lights up a room ...")
@@ -26,11 +24,10 @@ def start_game():
              return
         
         else:
-            print("Invalid choice. Please enter left or right")
+            print("Invalid choice. Please enter left or right and quit")
     
 
 def returend_to_start():
-    while True:
         
         print("youre at the Start")
         print("what will you do? (left/right)")
@@ -48,13 +45,12 @@ def returend_to_start():
         
         else:
              print("Invalid choice. Please enter left or right")            
-    
-    start_game()        
+            
 
 
 
 def left_door():
-    while True:
+
         print("you open the left door")
         print("another empty room this time without doors")
         print("but wait there is something on the floor something ")
@@ -70,20 +66,21 @@ def left_door():
              Inventory["Key"] = 1
              print("you pickled up a Key, your Invntory holds 1 Key now")
              print("what will that be used for?")
-             print("what will you do next? (back/Inventory)")
+             print("what will you do next? (back/inventory)")
              
              choice = input().lower()
 
              if choice == "back":
                  returend_to_start()
              
-             if choice == "Inventory":
+             if choice == "inventory":
                 for item,count in Inventory:
                     print(f"Item: {item}, Count: {count}")
                     print("theres nothing more to do in this room, you go back to the start")
                 returend_to_start()
-            else:
-                 print("Invalid choice. Please enter left or right")
+             else:
+                  print("Invalid choice. Please enter left or right")
+                  left_door()
         
         elif choice == "back":
              returend_to_start()
@@ -92,12 +89,13 @@ def left_door():
              print("Quitting, going to start all over")
              return
         
-        else:print("Invalid choice. Please enter left or right")
-    start_game()
+        else:
+             print("Invalid choice. Please enter left or right")
+             left_door()
 
         
 def right_door():
-    while True:
+
         print("you open the right door")
         print("this looks like some kind of wine cellar, it is well lit and there are many barrels")
         print("you see two doors which one will you choose (left/straight")
@@ -106,7 +104,7 @@ def right_door():
             left_door_2()
         
         elif choice == "straight":
-            returend_to_start()
+            straight()
         
         elif choice == "quit":
             print("Quitting, going to start all over")
@@ -115,7 +113,7 @@ def right_door():
         else:
             print("Invalid choice. Please enter left or straight")
 
-def returend_to_start():
+def straight():
     print("yup")   
 
 def left_door_2():
