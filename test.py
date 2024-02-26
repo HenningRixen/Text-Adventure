@@ -22,11 +22,15 @@ def start_game():
              right_door()
         
         elif choice == "quit":
+             print("")
              print("Quitting")
+             print("")
              return
+        
         elif choice == "inventory":
              show_inventory()
              start_game()
+        
         else:
             print("Invalid choice. Please enter left or right and quit")   
 
@@ -37,7 +41,8 @@ def show_inventory():
     print("")
     print("-------------------------------------------------------")
     print("")
-    print("Inventory")
+    print("Inventory:")
+    print("")
     
     if inventory == {}:
            print("")
@@ -48,6 +53,9 @@ def show_inventory():
     else:
         for item, count in inventory.items():    
             print(f"{item}: {count}")
+            print("")
+            print("you return to your room now")
+            print("")
 
 
 #if you return to the start from other room it should take you here:
@@ -71,7 +79,9 @@ def returend_to_start():
              returend_to_start()
         
         elif choice == "quit":
+             print("")
              print("Quitting, going to start all over")
+             print("")
              return
         
         else:
@@ -118,7 +128,9 @@ def left_door():
                               returend_to_start()
                          
                          elif choice == "quit":
+                              print("")
                               print("Quitting, going to start all over")
+                              print("")
                               return
                          
                          elif choice == "inventory":
@@ -142,23 +154,73 @@ def left_door():
              left_door()
         
         elif choice == "quit":
-             print("Quitting, going to start all over")
-             return
+              print("")
+              print("Quitting, going to start all over")
+              print("")
+              return
         
         else:
              print("Invalid choice. Please enter back or pick_up")
              left_door()
 
-# right you can go left or right or pick_up_chicken  
+# right you can go left or straight or pick_rubberchicken  
 def right_door():
-
+        
+        print("")
+        print("-------------------------------------------------------")
+        print("")
         print("you open the right door")
         print("this looks like some kind of wine cellar, it is well lit and there are many barrels")
-        print("you see two doors which one will you choose (left/straight/back/pick chicken/inventory/")
+        print("and theres a magical rubber chicken running around")
+        print("you see two doors which one will you choose (left/straight/back/pick_rubberchicken/inventory/")
         
+        choice = input().lower()
+
         if choice == "left":
             left_door_2()
         
+        if choice == "pick_rubberchicken":
+                    if "rubberchicken" in inventory:
+                         print("")
+                         print("-------------------------------------------------------")
+                         print("nice try but you cant pick it up twice")
+                         print("-------------------------------------------------------")
+                         left_door()
+                    else:
+                         inventory["rubberchicken"] = 1
+                         print("")
+                         print("-------------------------------------------------------")
+                         print("")
+                         print("you pickled up the rubberchicken, your Invntory holds 1 Chicken now")
+                         print("what will that be used for?")
+                         print("Next what do you want to do? (back/straight/left/inventory)")
+                         
+                         choice = input().lower()
+
+                         if choice == "back":
+                            returend_to_start()
+                         
+                         elif choice == "quit":
+                              print("")
+                              print("Quitting, going to start all over")
+                              print("")
+                              return
+                         
+                         elif choice == "inventory":
+                              show_inventory()
+                              right_door()
+                         
+                         elif choice == "straight": 
+                              straight()
+
+                         elif choice == "left":
+                              left_door_2()  
+                         
+                         else:
+                              print("Invalid choice. Please enter back or inventory")
+                              right_door()
+                         
+                        
         elif choice == "straight":
             straight()
         
@@ -168,9 +230,10 @@ def right_door():
         elif choice == "inventory":
              show_inventory()
              right_door()
+
         elif choice == "quit":
             print("Quitting, going to start all over")
-            start_game()
+            return
         
         else:
             print("Invalid choice. Please enter left or straight")
@@ -178,10 +241,158 @@ def right_door():
 
 # second level if you go right first
 def straight():
-    print("yup")   
+            
+        print("")
+        print("-------------------------------------------------------")
+        print("")
+        print("you open the right door")
+        print("this looks like some kind of wine cellar, it is well lit and there are many barrels")
+        print("and theres a magical rubber chicken running around")
+        print("you see two doors which one will you choose (left/straight/back/pick_rubberchicken/inventory/")
+        
+        choice = input().lower()
+
+        if choice == "left":
+            left_door_2()
+        
+        if choice == "pick_rubberchicken":
+                    if "rubberchicken" in inventory:
+                         print("")
+                         print("-------------------------------------------------------")
+                         print("nice try but you cant pick it up twice")
+                         print("-------------------------------------------------------")
+                         left_door()
+                    else:
+                         inventory["rubberchicken"] = 1
+                         print("")
+                         print("-------------------------------------------------------")
+                         print("")
+                         print("you pickled up the rubberchicken, your Invntory holds 1 Chicken now")
+                         print("what will that be used for?")
+                         print("Next what do you want to do? (back/straight/left/inventory)")
+                         
+                         choice = input().lower()
+
+                         if choice == "back":
+                            returend_to_start()
+                         
+                         elif choice == "quit":
+                              print("")
+                              print("Quitting, going to start all over")
+                              print("")
+                              return
+                         
+                         elif choice == "inventory":
+                              show_inventory()
+                              right_door()
+                         
+                         elif choice == "straight": 
+                              straight()
+
+                         elif choice == "left":
+                              left_door_2()  
+                         
+                         else:
+                              print("Invalid choice. Please enter back or inventory")
+                              right_door()
+                         
+                        
+        elif choice == "straight":
+            straight()
+        
+        elif choice == "back":
+             returend_to_start()
+
+        elif choice == "inventory":
+             show_inventory()
+             right_door()
+
+        elif choice == "quit":
+            print("Quitting, going to start all over")
+            return
+        
+        else:
+            print("Invalid choice. Please enter left or straight")
+            right_door()  
 
 def left_door_2():
-    print("hey")            
+            
+        print("")
+        print("-------------------------------------------------------")
+        print("")
+        print("you open the left door")
+        if "chicken" in inventory
+        else:
+               print("")
+               print("There is a huge ass Dragon in the middle of the room guarding a chest")
+               print("for now he didnt see you but you slowly close the door and go back to the wine cellar")
+               print("maybe you can distract him somehow")
+               right_door()
+        
+        choice = input().lower()
+
+        if choice == "left":
+            left_door_2()
+        
+        if choice == "pick_rubberchicken":
+                    if "rubberchicken" in inventory:
+                         print("")
+                         print("-------------------------------------------------------")
+                         print("nice try but you cant pick it up twice")
+                         print("-------------------------------------------------------")
+                         left_door()
+                    else:
+                         inventory["rubberchicken"] = 1
+                         print("")
+                         print("-------------------------------------------------------")
+                         print("")
+                         print("you pickled up the rubberchicken, your Invntory holds 1 Chicken now")
+                         print("what will that be used for?")
+                         print("Next what do you want to do? (back/straight/left/inventory)")
+                         
+                         choice = input().lower()
+
+                         if choice == "back":
+                            returend_to_start()
+                         
+                         elif choice == "quit":
+                              print("")
+                              print("Quitting, going to start all over")
+                              print("")
+                              return
+                         
+                         elif choice == "inventory":
+                              show_inventory()
+                              right_door()
+                         
+                         elif choice == "straight": 
+                              straight()
+
+                         elif choice == "left":
+                              left_door_2()  
+                         
+                         else:
+                              print("Invalid choice. Please enter back or inventory")
+                              right_door()
+                         
+                        
+        elif choice == "straight":
+            straight()
+        
+        elif choice == "back":
+             returend_to_start()
+
+        elif choice == "inventory":
+             show_inventory()
+             right_door()
+
+        elif choice == "quit":
+            print("Quitting, going to start all over")
+            return
+        
+        else:
+            print("Invalid choice. Please enter left or straight")
+            right_door()           
             
 
 
