@@ -439,6 +439,78 @@ def right_door_after_dragon():
         print("Invalid choice. Please enter left or straight or inventory")
         right_door_after_dragon()
 
+#if you go straight without the dragon
+def right_door_if_you_went_straight():
+    
+    print("")
+    print("--------------------------------------------------------------------")
+    print("")
+    print("The wine is everywhere")
+    print("somebody chopped up the barrels with an axe")
+    print("who would do something like that? You got to be careful")
+    print("somebody else is or was here too")
+    print("he also locked the door back to the starting room")
+    print("the rubber duck still floats on the wine")
+    print("choose straight/left/pick_rubberchicken/inventory")
+    
+    choice = input().lower()
+
+    if choice == "pick_rubberchicken":
+                    if "rubberchicken" in inventory:
+                         print("")
+                         print("-------------------------------------------------------")
+                         print("nice try but you cant pick it up twice")
+                         print("-------------------------------------------------------")
+                         right_door_if_you_went_straight()
+                    else:
+                         inventory["rubberchicken"] = 1
+                         print("")
+                         print("-------------------------------------------------------")
+                         print("")
+                         print("you pickled up the rubberchicken, your Invntory holds 1 Chicken now")
+                         print("what will that be used for?")
+                         right_door_if_you_went_straight()
+
+    if choice == "left":
+       if "rubberchicken" in inventory:
+           print("")
+           print("--------------------------------------------------------------------")
+           print("")
+           print("There is a huge ass Dragon in the middle of the room guarding a chest")
+           print("you take the rubberchicken throw it in the corner and open the chest")
+           inventory["rubberchicken"] = 0
+           print("it contains a magical crystal of some sort")
+           print("you store it in your inventory and leave the room")
+           inventory["magical_crystal"] = 1 
+           right_door_after_dragon()
+       else:
+           print("")
+           print("--------------------------------------------------------------------")
+           print("")
+           print("Severe dragon in this room you have to distract him somehow")
+           print("you go back to where you came from")
+           right_door_if_you_went_straight()
+
+    
+    elif choice == "straight":
+            straight()
+
+    elif choice == "inventory":
+             show_inventory()
+             right_door_if_you_went_straight()
+
+    elif choice == "quit":
+            print("")
+            print("--------------------------------------------------------------------")
+            print("Quitting, going to start all over")
+            return
+        
+    else:
+        print("")
+        print("--------------------------------------------------------------------")
+        print("Invalid choice. Please enter left or straight or inventory")
+        right_door_if_you_went_straight()
+    
         
 # level 3:
 #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -450,14 +522,46 @@ def level_3_choices():
     print("You enter a large room with a podium in the middle")
     print("Everywhere are mushrooms in every kind of shape and size")
     print("The room also has three doors")
-    print("What do you do ? (podium/left/right/straight/inventory)")
+    print("What do you do ? (podium/left/right/back/straight/inventory)")
 
     choice = input().lower()
 
-    if choice == "podium"
-    elif choice == "left"
-    elif choice == "right"
-    elif choice == "straight"
+    if choice == "podium":
+       if "magical_crystal" in inventory and "fragment_left" in inventory and "fragment_right" in inventory:
+          inventory["magical_crystal"] = 0
+          inventory["fragment_left"] = 0
+          inventory["fragment_right"] = 0
+          inventory["magical_key"] = 1          
+          print("")
+          print("--------------------------------------------------------------------")
+          print("")
+          print("you step to the podium and something strange happens")
+          print("the magical crystal in your pocket starts vibrating and flys to the podium ")
+          print("the two fragments also do that")
+          print("there is a loud POW!!!! and the components combine into a magical key")
+
+          print("there is only one way to go now")
+          level_3_choices()
+
+       else:
+          print("")
+          print("--------------------------------------------------------------------")
+          print("")
+          print("you step to the podium but nothing happes")
+          level_3_choices()
+
+    elif choice == "left":
+         level_3_left()
+    
+    elif choice == "right":
+         level_3_right()
+    
+    elif choice == "straight":
+         level_3_straight()
+     
+    elif choice =="back":
+         right_door_if_you_went_straight()
+    
     elif choice == "inventory":
           show_inventory()
           level_3_choices()
@@ -472,19 +576,135 @@ def level_3_choices():
         print("")
         print("--------------------------------------------------------------------")
         print("Invalid choice. Please enter left or straight or podium or inventory")
-        level_3_choices
-           
+        level_3_choices()
+
+# rooms you can enter in level 3:
+
+#gets u fragment
+def level_3_left():
+     print("")
+     print("--------------------------------------------------------------------")
+     print("you open the left door")
+     print("another empty room this time without doors put it is extremly hot")
+     print("but wait there is something on the floor a key like fragment ")
+     print("what will you do? (back/pick_up/inventory)")
+        
+     choice = input().lower()
+        
+
+     if choice == "pick_up":
+          if "fragment_left" in inventory:
+               print("")
+               print("-------------------------------------------------------")
+               print("nice try but you cant pick it up twice")
+               print("-------------------------------------------------------")
+               level_3_left()
+          else:
+               inventory["fragment_left"] = 1
+               print("")
+               print("-------------------------------------------------------")
+               print("")
+               print("you pickled up a fragment, your Invntory holds 1 fragment now")
+               print("what will that be used for?")
+               level_3_left()
+                         
+                         
+        
+     elif choice == "back":
+          level_3_choices()
+        
+     elif choice == "inventory":
+          show_inventory()
+          level_3_left()
+        
+     elif choice == "quit":
+          print("")
+          print("Quitting, going to start all over")
+          print("")
+          return
+        
+     else:
+          print("Invalid choice. Please enter back or pick_up")
+          level_3_left()
+
+#gets u fragment
+def level_3_right():
+     print("")
+     print("--------------------------------------------------------------------")
+     print("you open the right door")
+     print("another empty room this time without doors put it is extremly cold")
+     print("but wait there is something on the floor a key like fragment ")
+     print("what will you do? (back/pick_up/inventory)")
+        
+     choice = input().lower()
+        
+
+     if choice == "pick_up":
+          if "fragment_right" in inventory:
+               print("")
+               print("-------------------------------------------------------")
+               print("nice try but you cant pick it up twice")
+               print("-------------------------------------------------------")
+               level_3_right
+          
+          else:
+               inventory["fragment_right"] = 1
+               print("")
+               print("-------------------------------------------------------")
+               print("")
+               print("you pickled up a fragment, your Invntory holds 1 fragment now")
+               print("what will that be used for?")
+               level_3_right()
+                         
+                         
+        
+     elif choice == "back":
+          level_3_choices()
+        
+     elif choice == "inventory":
+          show_inventory()
+          level_3_right()
+        
+     elif choice == "quit":
+          print("")
+          print("Quitting, going to start all over")
+          print("")
+          return
+        
+     else:
+          print("Invalid choice. Please enter back or pick_up")
+          level_3_right()
+
+#gets u free if you have the key
+def level_3_straight():
+     print("")
+     print("--------------------------------------------------------------------")
+     print("")
+     if "magical_key" in inventory:
+        print("")
+        print("--------------------------------------------------------------------")
+        print("")
+        print("you open the door and fresh air blows you in the nose")
+        print("it is a warm nice day and you have to get used to the brightness first")
+        end()
+     else:
+          print("")
+          print("--------------------------------------------------------------------")
+          print("")
+          print("There is a huge wooden door and you can see the sun lickering through")
+          print("but it is locked you got to get the key first")
+          print("you return to the big room")
+          level_3_choices()
+
+# the endings
+def end():
+    print("youve made it outside congrats")
+    print("i hope you liked the adventure")
+    print("paypal me lol (quit)")
+
+    choice = input().lower()
+    
+    if choice == "quit"
+       return         
             
-
-
-
-
-
-
-
-
-
-
-
-
 start_game()
