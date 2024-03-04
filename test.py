@@ -285,7 +285,7 @@ def back_at_right_door():
                          
                          elif choice == "inventory":
                               show_inventory()
-                              right_door()
+                              back_at_right_door()
                          
                          elif choice == "straight": 
                               straight()
@@ -295,7 +295,7 @@ def back_at_right_door():
                          
                          else:
                               print("Invalid choice. Please enter back or inventory")
-                              right_door()
+                              back_at_right_door()
                          
                         
         elif choice == "straight":
@@ -704,7 +704,7 @@ def end():
 
     choice = input().lower()
     
-    if choice == "quit"
-       return         
+    if choice == "quit":
+       start_game()         
             
 start_game()
