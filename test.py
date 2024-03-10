@@ -698,7 +698,19 @@ def level_3_straight():
 
 # the endings
 def end():
-    print("youve made it outside congrats")
+    print("you open the door and the sunlight shines in your face")
+    print("you cant believe youve made it through this")
+    print("youre suprised to see somebody covered in wine standing in youre reach")
+    print("It is Mr.Fusselbuss and he is glancing at you")
+    print("------------------------------------------------------------------------")
+    print("")
+    print("Fusselbuss: I didnt think you would make it through")
+    print("You: So you locked me in here!!! ")
+    print("Fusselbuss: Yes i wanted the production of jam to stop")
+    print("Fusselbuss: i just cant take it youre so famous for your jam and i try to mage my own products out of mushrooms but nobody likes them")
+    print("You: ")
+    print("------------------------------------------------------------------------")
+    print("")
     print("i hope you liked the adventure")
     print("paypal me lol (quit)")
 
